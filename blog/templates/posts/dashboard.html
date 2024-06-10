@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+   
+   <table border="2px solid red"> 
+        <tr> 
+              <th> ID </th>  
+              <th> Post Title </th>
+              <th> Post Content </th>
+              <th> Post Author </th>
+              <th> Post Image</th>
+              <th> Post Category  </th> 
+
+        </tr>
+
+
+        {% for post in posts %}
+
+            <tr> 
+
+                    <td> {{ post.id}} </td>
+                    <td> {{ post.title}} </td>
+                    <td> {{ post.content}} </td>
+                    <td> {{ post.author}} </td>
+                    <td> <img src="{{post.post_images.url }}" width="200px" height="150px"/> </td>
+                    <td> {{ post.category}} </td>
+
+
+            </tr>
+
+
+        {% endfor %}
+
+
+
+   </table>
+
+
+
+
+
+
+</body>
+</html>
