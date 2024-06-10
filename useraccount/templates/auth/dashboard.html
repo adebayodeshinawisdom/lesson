@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Your welcome to your dashboard <a href="{% url 'logout'  %}">   Logout </a>
+
+    <h1> List of all users  </h1>
+
+    <table style="border:2px red solid; width: 800px;"> 
+            <tr style="border: 2px red solid"> 
+                <th style="border: 2px red solid"> ID Number</th>
+                <th style="border: 2px red solid"> Name</th>
+                <th style="border: 2px red solid"> Email </th>
+                <th style="border: 2px red solid"> Status</th>
+                <th style="border: 2px red solid"> Actions </th>
+                
+            </tr>
+
+
+            
+
+                {% for user in users %}
+                <tr style="border: 2px red solid"> 
+
+                    <td style="border: 1px gray solid"> {{user.id }} </td>
+                    <td style="border: 1px gray solid"> {{user.username }} </td>
+                    <td style="border: 1px gray solid"> {{user.email }} </td>
+
+                    {% if user.is_superuser %}
+
+                    <td style="border: 1px gray solid"> Superuser </td>
+
+                     {% else %}
+                     <td style="border: 1px gray solid"> Staff  </td>
+
+                    {% endif %}
+
+                    
+
+             <td> <a href="{% url 'delete_user' user.id %}"> Delete User </a></td>
+
+                </tr>
+
+                {% endfor %}
+
+
+               
+           
+
+    </table>
+</body>
+</html>
